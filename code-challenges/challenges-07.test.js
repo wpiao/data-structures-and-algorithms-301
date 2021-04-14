@@ -62,12 +62,9 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = str => {
   let result = [];
   // Solution code here...
-  let remaining = str;
-  while (remaining) {
-    result.push(remaining);
-    remaining = remaining.slice(1);
+  for (let i = 0; i <= str.length; i++) {
+    result.push(str.slice(i));
   }
-  result.push(remaining);
   return result;
 };
 
