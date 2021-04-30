@@ -54,13 +54,7 @@ Return either true or false.
 Note: if you ever need to validate an email using a regex in practice, the Internet has the actual regex you should use. It's many many lines long.
 ------------------------------------------------------------------------------------------------ */
 
-const validateEmail = email => {
-  // Solution code here...
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-
-  return re.test(email);
-};
+const validateEmail = email => (/^(\w+)(.\w+)?@([A-Za-z]+).(com|net|org)$/).test(email);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -83,10 +77,7 @@ Your function should include a single regular expression pattern that matches an
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
-const validatePhoneNumber = phoneNumber => {
-  // Solution code here...
-  return (/^((\d{3}))|(\d{3})-?\d{3}-?\d{4}$/).test(phoneNumber);
-};
+const validatePhoneNumber = phoneNumber => (/^(\(\d{3}\)|(\d{3}))(-|\s)?\d{3}(-|\s)?\d{4}$/).test(phoneNumber);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -209,7 +200,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return the closing tags', () => {
     expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/p']);
   });
