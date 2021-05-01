@@ -33,7 +33,8 @@ Note: You might need to use the same method more than once.
 For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
-const count = (target, input) => input.reduce((prev, current) => prev + current.reduce((prev, current) => current === target ? prev + 1 : prev, 0), 0);
+const count = (target, input) => input.reduce((prev, current) => prev + current.filter(num => num === target).length, 0);
+// const count = (target, input) => input.reduce((prev, current) => prev + current.reduce((prev, current) => current === target ? prev + 1 : prev, 0), 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -131,7 +132,10 @@ CHALLENGE 6
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the shortest character.
 ------------------------------------------------------------------------------------------------ */
 
-let findShortest = data => data.reduce((prev, current) => current.name.match(/[A-Za-z]/g).length < prev.match(/[A-Za-z]/g).length ? current.name : prev, data[0].name);
+const findShortest = data => data.reduce((prev, current) => +current.height < +prev.height ? current : prev, data[0]).name;
+
+// misunderstood the questions :)
+// let findShortest = data => data.reduce((prev, current) => current.name.match(/[A-Za-z]/g).length < prev.match(/[A-Za-z]/g).length ? current.name : prev, data[0].name);
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
