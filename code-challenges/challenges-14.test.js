@@ -178,13 +178,23 @@ const detectTicTacToeWin = board => {
     [0, 0, 1, 1, 2, 2],
     [0, 2, 1, 1, 2, 0]
   ];
-  const compare = (row1, col1, row2, col2, row3, col3) => {
-    if (board[row1][col1] === board[row2][col2]) {
-      if (board[row2][col2] === board[row3][col3]) {
-        //
-      }
+
+  const compare = arr => {
+    if (board[arr[0]][arr[1]].length === 1 && board[arr[0]][arr[1]] === board[arr[2]][arr[3]] && board[arr[2]][arr[3]] === board[arr[4]][arr[5]]) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  for (const arr of winCoordinates) {
+    if (compare(arr)) {
+      return true;
+    } else {
+      continue;
     }
   }
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
