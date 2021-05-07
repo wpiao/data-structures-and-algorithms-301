@@ -109,10 +109,7 @@ Return a two-dimensional array with the same roster, but where anyone whose name
 For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
 
-const unenrollBrook = arr => {
-  // Solution code here...
-  return arr.filter(innerArr => innerArr.filter(name => (!name.includes('Brook'))));
-};
+const unenrollBrook = arr => arr.map(innerArr => innerArr.filter(name => !name.includes('Brook')));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -135,10 +132,35 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 ]
 ------------------------------------------------------------------------------------------------ */
 
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+// const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-const sortByDay = (arr) => {
+const sortByDay = arr => {
   // Solution code here...
+  const result = [[], [], [], [], [], [], []];
+  arr.forEach(event => {
+    if (event.toLowerCase().includes('monday')) {
+      result[0].push(event);
+    }
+    if (event.toLowerCase().includes('tuesday')) {
+      result[1].push(event);
+    }
+    if (event.toLowerCase().includes('wednesday')) {
+      result[2].push(event);
+    }
+    if (event.toLowerCase().includes('thursday')) {
+      result[3].push(event);
+    }
+    if (event.toLowerCase().includes('friday')) {
+      result[4].push(event);
+    }
+    if (event.toLowerCase().includes('saturday')) {
+      result[5].push(event);
+    }
+    if (event.toLowerCase().includes('sunday')) {
+      result[6].push(event);
+    }
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -149,9 +171,7 @@ Write a function named characterByIndex that takes in an array of strings and re
 For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
-const characterByIndex = (arr) => {
-  // Solution code here...
-};
+const characterByIndex = arr => arr.map((string, i) => string[i]);
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
